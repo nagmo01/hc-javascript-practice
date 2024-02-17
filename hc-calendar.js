@@ -17,9 +17,6 @@ const {
 
 const numbers = Array.from({length: 12}, (_, i) => (i + 1).toString());
 
-
-//関数内で使う今日の日付、これにオプションで取得した月をセットしなおす形で使う
-
 function checkOption(optionMonth){
   if(optionMonth === undefined){
     //未指定なので今月のカレンダーを表示させる
@@ -30,7 +27,7 @@ function checkOption(optionMonth){
   } else if(numbers.includes(optionMonth)){
 
     //1~12月で指定されたので指定された月のカレンダーを表示させる
-    //こちらの変数にオプション引数の値が1の場合も01に直して文字列取得で使える形にして返す。
+    //こちらの変数にオプション引数の値を文字列で受け取るためそのまま1の場合も01に直して文字列取得で使える形にして返す。
     let stringMonth
     let someday = new Date();
 
@@ -48,45 +45,32 @@ function checkOption(optionMonth){
 }
 
 
-console.log("表示するカレンダーの日付");
-//dateに入力された月、または当月どちらかの1日のデータを入れる
+//入力された月、または当月どちらかの1日のデータを入れる
 let date = checkOption(optionMonth);
-console.log(date.getMonth());
-//このときdateにはoptionがあればその月の1日、なければ今月の1日が入る。
 
 
 
 
-const weekArray = ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"];
+//const weekArray = ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"];
 
 
 const getDay = date.getDay();
 
-//let date = checkOption((optionMonth));
-//console.log(date);
-console.log("1日は何曜日か？");
-console.log(getDay);
 
-//const firstDate = date.getDay();
-console.log(weekArray[date.getDay()])
-
-console.log("変更前date");
-console.log(date);
+//console.log(weekArray[date.getDay()])
 
 
-console.log("今日");
-console.log(date.getFullYear()+" "+String(date.getMonth()+1)+" "+date.getDate());
+//console.log("今日");
+//console.log(date.getFullYear()+" "+String(date.getMonth()+1)+" "+date.getDate());
 
 //date.setMonth(date.getMonth()+1, 0);
 
 date.setMonth(date.getMonth()+1, 0);
 
-console.log("date");
-console.log(date);
 
 
-console.log("最終日");
-console.log(date.getFullYear()+" "+String(date.getMonth()+1)+" "+date.getDate());
+//console.log("最終日");
+//console.log(date.getFullYear()+" "+String(date.getMonth()+1)+" "+date.getDate());
 
 
 
@@ -138,4 +122,5 @@ while (i <= date.getDate()){
   t += 1;
 }
 
+//出力の最後に%が表示されないように空白入れる
 console.log(" ");
